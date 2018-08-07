@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard/candidates/create', function () {
     return 'create candidate';
 });
+Route::post('/dashboard/candidates', function () {
+    return response('candidate created', 422);
+});

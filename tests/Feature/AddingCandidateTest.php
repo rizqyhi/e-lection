@@ -14,7 +14,16 @@ class AddingCandidateTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testFailedAddingCandidate() {}
+    public function testFailedAddingCandidate() {
+        $candidate = [
+            'no'    => 1,
+            'color' => '#ffff00'
+        ];
+
+        $response = $this->post('/dashboard/candidates', $candidate);
+
+        $response->assertStatus(422);
+    }
 
     public function testSuccessfullyAddingCandidate() {}
 }
