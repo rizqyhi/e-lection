@@ -25,5 +25,15 @@ class AddingCandidateTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function testSuccessfullyAddingCandidate() {}
+    public function testSuccessfullyAddingCandidate() {
+        $candidate = [
+            'name'  => 'John Doe',
+            'no'    => 1,
+            'color' => '#ffff00'
+        ];
+
+        $response = $this->json('post', '/dashboard/candidates', $candidate);
+
+        $response->assertStatus(201);
+    }
 }
