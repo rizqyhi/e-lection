@@ -8,7 +8,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AddingCandidateTest extends TestCase
 {
-    public function testAddingCandidatePageExists() {}
+    public function testAddingCandidatePageExists() {
+        $response = $this->get('/dashboard/candidates/create');
+
+        $response->assertStatus(200);
+    }
 
     public function testFailedAddingCandidate() {}
 
