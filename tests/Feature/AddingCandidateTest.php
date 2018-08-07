@@ -20,7 +20,7 @@ class AddingCandidateTest extends TestCase
             'color' => '#ffff00'
         ];
 
-        $response = $this->post('/dashboard/candidates', $candidate);
+        $response = $this->json('post', '/dashboard/candidates', $candidate);
 
         $response->assertStatus(422);
     }
