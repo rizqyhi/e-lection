@@ -21,8 +21,9 @@ class AddingCandidateTest extends TestCase
         ];
 
         $response = $this->json('post', '/dashboard/candidates', $candidate);
-
         $response->assertStatus(422);
+
+        $this->assertDatabaseMissing('candidates', $candidate);
     }
 
     public function testSuccessfullyAddingCandidate() {
