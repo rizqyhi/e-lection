@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AddingCandidateTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testAddingCandidatePageExists() {
         $response = $this->get('/dashboard/candidates/create');
 
@@ -34,7 +36,8 @@ class AddingCandidateTest extends TestCase
         ];
 
         $response = $this->json('post', '/dashboard/candidates', $candidate);
-
         $response->assertStatus(201);
+
+        $this->assertDatabasehas('candidates', $candidate);
     }
 }
