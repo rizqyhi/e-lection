@@ -18,6 +18,7 @@ class CreateCandidatesTable extends Migration
             $table->string('name');
             $table->integer('no');
             $table->string('color');
+            $table->string('photo');
             $table->timestamps();
         });
     }

@@ -12,11 +12,20 @@ class CreateCandidate extends Controller
         $validatedData = $request->validate([
             'name'  => 'required',
             'no'    => 'required|integer',
-            'color' => 'required'
+            'color' => 'required',
+            'photo' => 'required|image|max:1024'
         ]);
 
-        $candidate = $repository->save($validatedData);
+        if ($candidate = $repository->save($validatedData)) {
+            $this->uploadPhoto($candidate, $validatedData['photo']);
+        }
 
         return response('candidate created', 201);
+    }
+
+    public function uploadPhoto($candidate, $file) {
+        if ($file->isValid()) {
+            $file->storeAs('candidates', $file->hashName(), 'public');
+        }
     }
 }
