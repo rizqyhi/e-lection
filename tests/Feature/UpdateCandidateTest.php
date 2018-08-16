@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Candidate;
 use App\Repositories\Contracts\CandidateRepository;
+use App\Repositories\EloquentCandidateRepository;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -10,19 +12,18 @@ class UpdateCandidateTest extends TestCase
 {
     use RefreshDatabase;
 
-    public $candidate;
-
-    public function setUp()
-    {
-        $this->candidate = [
-            'id'    => '1234-abcd',
+    public function testUpdateCandidatePageExists() {
+        $candidateRepo = new EloquentCandidateRepository(new Candidate());
+        $candidate = $candidateRepo->save([
             'name'  => 'John Doe',
             'no'    => 1,
             'color' => '#ffff00',
             'photo' => 'avatar.jpg'
-        ];
+        ]);
 
-        parent::setUp();
+        $response = $this->get('/dashboard/candidates/'.$candidate->id);
+
+        $response->assertStatus(201);
     }
 
     public function testUpdateCandidatePageExists() {}

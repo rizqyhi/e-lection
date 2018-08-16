@@ -23,3 +23,4 @@ Route::get('/dashboard/candidates/create', function () {
     return 'create candidate';
 });
 Route::post('/dashboard/candidates', Dashboard\Candidates\StoreCandidate::class);
+Route::get('/dashboard/candidates/{candidate}', Dashboard\Candidates\UpdateCandidate::class);
