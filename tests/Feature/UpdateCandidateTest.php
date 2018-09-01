@@ -26,9 +26,21 @@ class UpdateCandidateTest extends TestCase
         $response->assertStatus(201);
     }
 
-    public function testUpdateCandidatePageExists() {}
+    public function testFailedUpdateCandidate() {
+        $candidateRepo = new EloquentCandidateRepository(new Candidate());
+        $candidate = $candidateRepo->save([
+            'name'  => 'John Doe',
+            'no'    => 1,
+            'color' => '#ffff00',
+            'photo' => 'avatar.jpg'
+        ]);
 
-    public function testFailedUpdateCandidate() {}
+        $response = $this->put('/dashboard/candidates/'.$candidate->id, [
+            'name' => 'John saja'
+        ]);
+
+        $response->assertStatus(200);
+    }
 
     public function testSuccessfullyUpdateCandidate() {}
 }
