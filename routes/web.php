@@ -20,7 +20,14 @@ $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Dashboard routes
+Route::group([
+    'prefix'     => 'dashboard',
+    'namespace'  => 'Dashboard',
+    'middleware' => 'auth'
+], function () {
+    Route::get('/', Home::class);
+});
 
 Route::get('/dashboard/candidates/create', function () {
     return 'create candidate';
