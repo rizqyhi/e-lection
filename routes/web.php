@@ -27,6 +27,8 @@ Route::group([
     'middleware' => 'auth'
 ], function () {
     Route::get('/', Home::class);
+
+    Route::get('candidates', Candidates\ListCandidates::class);
 });
 
 Route::get('/dashboard/candidates/create', function () {
