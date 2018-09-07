@@ -2,8 +2,10 @@
 
 @section('content')
     <div class="container">
-        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#create-candidate-modal">Tambah Kandidat Baru</a>
+        <div class="col-md-4">
+            <p><strong>Tambah Kandidat Baru</strong></p>
+            @include('dashboard.candidates.create')
+        </div>
     </div>
 
-    @include('dashboard.candidates.create')
 @endsection

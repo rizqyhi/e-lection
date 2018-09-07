@@ -2,30 +2,33 @@
 
 namespace App\Http\Controllers\Dashboard\Candidates;
 
+use App\Http\Requests\CandidateStoreRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\CandidateRepository;
 
 class StoreCandidate extends Controller
 {
-    public function __invoke(Request $request, CandidateRepository $repository) {
-        $validatedData = $request->validate([
-            'name'  => 'required',
-            'no'    => 'required|integer',
-            'color' => 'required',
-            'photo' => 'required|image|max:1024'
-        ]);
+    private $repository;
 
-        if ($candidate = $repository->save($validatedData)) {
-            $this->uploadPhoto($candidate, $validatedData['photo']);
+    public function __construct(CandidateRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function __invoke(CandidateStoreRequest $request) {
+        if ($candidate = $this->repository->save($request->only(['name', 'no', 'color']))) {
+            $this->uploadPhoto($candidate, $request->file('photo'));
         }
 
-        return response('candidate created', 201);
+        return redirect()->back()->with('sucess', 'Kandidat baru berhasil disimpan');
     }
 
     public function uploadPhoto($candidate, $file) {
         if ($file->isValid()) {
             $file->storeAs('candidates', $file->hashName(), 'public');
+
+            $this->repository->update($candidate->id, ['photo' => $file->hashName()]);
         }
     }
 }

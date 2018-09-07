@@ -25,4 +25,11 @@ class EloquentCandidateRepository implements CandidateRepository
             throw $e;
         }
     }
+
+    public function update($candidate_id, $candidate_data)
+    {
+        return $this->model
+            ->where('id', $candidate_id)
+            ->update($candidate_data);
+    }
 }
