@@ -21,7 +21,9 @@ class StoreCandidate extends Controller
             $this->uploadPhoto($candidate, $request->file('photo'));
         }
 
-        return redirect()->back()->with('sucess', 'Kandidat baru berhasil disimpan');
+        return redirect()
+            ->route('dashboard.candidates')
+            ->with('sucess', 'Kandidat baru berhasil disimpan');
     }
 
     public function uploadPhoto($candidate, $file) {
