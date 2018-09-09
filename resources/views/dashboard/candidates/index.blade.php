@@ -13,7 +13,7 @@
                 <div class="row">
                     @foreach($candidates as $candidate)
                         <div class="col-md-4">
-                            <a href="" class="card">
+                            <a href="" class="card mb-3">
                                 <div class="card-body">
                                     <img src="{{ asset('storage/candidates/'.$candidate->photo) }}" alt="{{ $candidate->name }}" class="rounded-circle float-left mr-3" width="64">
                                     <div>
