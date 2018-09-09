@@ -30,6 +30,6 @@ Route::group([
 
     Route::get('candidates', Candidates\ListCandidates::class)->name('dashboard.candidates');
     Route::post('candidates', Candidates\StoreCandidate::class);
-    Route::get('/dashboard/candidates/create', Candidates\CreateCandidate::class)->name('dashboard.candidates.create');
-    Route::get('/dashboard/candidates/{id}', Candidates\EditCandidate::class)->name('dashboard.candidates.edit');
+    Route::get('candidates/create', Candidates\CreateCandidate::class)->name('dashboard.candidates.create');
+    Route::get('candidates/{id}', Candidates\EditCandidate::class)->name('dashboard.candidates.edit');
 });
