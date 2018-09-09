@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col">
                 <h3 class="float-left">Kandidat</h3>
-                <a href="" class="btn btn-primary btn-sm float-right">Tambah Kandidat Baru &rarr;</a>
+                <a href="{{ route('dashboard.candidates.create') }}" class="btn btn-primary btn-sm float-right">Tambah Kandidat Baru &rarr;</a>
             </div>
         </div>
         <div class="row">

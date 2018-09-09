@@ -30,9 +30,7 @@ Route::group([
 
     Route::get('candidates', Candidates\ListCandidates::class)->name('dashboard.candidates');
     Route::post('candidates', Candidates\StoreCandidate::class);
+    Route::get('/dashboard/candidates/create', Candidates\CreateCandidate::class)->name('dashboard.candidates.create');
 });
 
-Route::get('/dashboard/candidates/create', function () {
-    return 'create candidate';
-});
 Route::get('/dashboard/candidates/{candidate}', Dashboard\Candidates\UpdateCandidate::class);
