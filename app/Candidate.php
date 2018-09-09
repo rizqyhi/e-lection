@@ -10,5 +10,12 @@ class Candidate extends Model
         'id', 'name', 'no', 'color', 'photo'
     ];
 
+    protected $appends = ['photo_url'];
+
     public $incrementing = false;
+
+    public function getPhotoUrlAttribute()
+    {
+        return asset('storage/candidates/'.$this->photo);
+    }
 }

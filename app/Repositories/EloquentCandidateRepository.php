@@ -19,6 +19,10 @@ class EloquentCandidateRepository implements CandidateRepository
     public function getAll()
     {
         return $this->model->orderBy('no')->get();
+
+    public function find($id)
+    {
+        return $this->model->newQuery()->find($id);
     }
 
     public function save($candidateData) {
