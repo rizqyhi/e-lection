@@ -16,6 +16,11 @@ class EloquentCandidateRepository implements CandidateRepository
         $this->model = $candidate;
     }
 
+    public function getAll()
+    {
+        return $this->model->orderBy('no')->get();
+    }
+
     public function save($candidateData) {
         try {
             $candidateData['id'] = Uuid::uuid4()->toString();
