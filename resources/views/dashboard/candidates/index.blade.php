@@ -8,6 +8,9 @@
                 <a href="{{ route('dashboard.candidates.create') }}" class="btn btn-primary btn-sm float-right">Tambah Kandidat Baru &rarr;</a>
             </div>
         </div>
+
+        @include('partials.notifications')
+
         <div class="row">
             <div class="col">
                 <div class="row">

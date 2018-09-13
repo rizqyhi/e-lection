@@ -30,7 +30,7 @@ class UpdateCandidate extends Controller
 
         return redirect()
             ->route('dashboard.candidates')
-            ->with('success', 'Kandidat <strong>'.$candidate->name.'</strong> baru berhasil disimpan');
+            ->with('success', 'Data kandidat <strong>'.$candidate->name.'</strong> berhasil disimpan');
     }
 
     public function uploadPhoto($candidate, $file) {
