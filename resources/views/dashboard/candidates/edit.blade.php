@@ -43,8 +43,8 @@
                     <div class="form-group row">
                         <label for="photo" class="col-sm-2 col-form-label">Foto</label>
                         <div class="col-sm-5">
-                            <img src="{{ $candidate->photo_url }}" alt="{{ $candidate->name }}" width="100" class="img-thumbnail">
-                            <button class="btn btn-outline-danger">&times;</button>
+                            <img src="{{ $candidate->photo_url }}" alt="{{ $candidate->name }}" width="100" class="img-thumbnail candidate-photo">
+                            <button type="button" class="btn btn-outline-danger btn-remove-photo">&times;</button>
                             <input type="file" accept="image/jpeg" name="photo" class="form-control d-none {{ $errors->has('photo') ? 'is-invalid' : '' }}">
                             @if($errors->has('photo'))
                                 <div class="invalid-feedback">{{ $errors->first('photo') }}</div>
@@ -61,3 +61,15 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        (function($){
+            $('.btn-remove-photo').click(function(e) {
+                $('.candidate-photo').hide();
+                $('input[name=photo]').removeClass('d-none');
+                $(this).hide();
+            });
+        })(jQuery);
+    </script>
+@endpush
