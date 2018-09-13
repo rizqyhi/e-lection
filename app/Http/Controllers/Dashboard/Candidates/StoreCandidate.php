@@ -23,7 +23,7 @@ class StoreCandidate extends Controller
 
         return redirect()
             ->route('dashboard.candidates')
-            ->with('sucess', 'Kandidat baru berhasil disimpan');
+            ->with('success', 'Kandidat baru berhasil disimpan');
     }
 
     public function uploadPhoto($candidate, $file) {
