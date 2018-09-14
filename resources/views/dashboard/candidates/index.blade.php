@@ -16,7 +16,7 @@
                 <div class="row">
                     @foreach($candidates as $candidate)
                         <div class="col-md-4">
-                            <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="card mb-3">
+                            <div class="card mb-3">
                                 <div class="card-body">
                                     <img src="{{ asset('storage/candidates/'.$candidate->photo) }}" alt="{{ $candidate->name }}" class="rounded-circle float-left mr-3" width="64">
                                     <div>
@@ -24,7 +24,11 @@
                                         <strong>{{ $candidate->name }}</strong>
                                     </div>
                                 </div>
-                            </a>
+                                <div class="card-footer">
+                                    <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-link text-danger">Hapus</a>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
