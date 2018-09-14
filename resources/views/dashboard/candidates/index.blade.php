@@ -21,7 +21,12 @@
                     </div>
                     <div class="card-footer">
                         <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-outline-primary btn-sm"><i class="ion-md-create"></i> Edit</a>
-                        <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-link text-danger"><i class="ion-md-trash"></i> Hapus</a>
+
+                        <form action="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" method="post" class="d-inline delete-candidate-form" onsubmit="return confirm(`Apakah kamu yakin untuk menghapus kandidat: {{ $candidate->name }}?`)">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-link text-danger"><i class="ion-md-trash"></i> Hapus</button>
+                        </form>
                     </div>
                 </div>
             </div>

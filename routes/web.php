@@ -33,4 +33,5 @@ Route::group([
     Route::get('candidates/create', Candidates\CreateCandidate::class)->name('dashboard.candidates.create');
     Route::get('candidates/{id}', Candidates\EditCandidate::class)->name('dashboard.candidates.edit');
     Route::put('candidates/{id}', Candidates\UpdateCandidate::class);
+    Route::delete('candidates/{id}', Candidates\DeleteCandidate::class);
 });

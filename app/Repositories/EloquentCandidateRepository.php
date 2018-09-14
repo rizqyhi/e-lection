@@ -42,4 +42,11 @@ class EloquentCandidateRepository implements CandidateRepository
             ->where('id', $candidate_id)
             ->update($candidate_data);
     }
+
+    public function delete($candidate_id)
+    {
+        return $this->model
+            ->where('id', $candidate_id)
+            ->delete();
+    }
 }
