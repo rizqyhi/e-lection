@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col">
                 <h3 class="float-left">Kandidat</h3>
-                <a href="{{ route('dashboard.candidates.create') }}" class="btn btn-primary btn-sm float-right">Tambah Kandidat Baru &rarr;</a>
+                <a href="{{ route('dashboard.candidates.create') }}" class="btn btn-primary float-right"><i class="ion-md-contact"></i> Tambah Kandidat Baru &rarr;</a>
             </div>
         </div>
 
@@ -25,8 +25,8 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-link text-danger">Hapus</a>
+                                    <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-primary btn-sm"><i class="ion-md-create"></i> Edit</a>
+                                    <a href="{{ route('dashboard.candidates.edit', ['id' => $candidate->id]) }}" class="btn btn-link text-danger"><i class="ion-md-trash"></i> Hapus</a>
                                 </div>
                             </div>
                         </div>
