@@ -9,6 +9,6 @@ class ListVoters extends Controller
 {
     public function __invoke()
     {
-        return 'voters page';
+        return view('dashboard.voters.index');
     }
 }
