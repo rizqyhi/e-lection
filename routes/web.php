@@ -34,4 +34,6 @@ Route::group([
     Route::get('candidates/{id}', Candidates\EditCandidate::class)->name('dashboard.candidates.edit');
     Route::put('candidates/{id}', Candidates\UpdateCandidate::class);
     Route::delete('candidates/{id}', Candidates\DeleteCandidate::class);
+
+    Route::get('voters', Voters\ListVoters::class)->name('dashboard.voters');
 });
