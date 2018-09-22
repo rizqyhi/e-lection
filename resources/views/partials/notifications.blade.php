@@ -3,3 +3,9 @@
         <i class="ion-md-checkmark-circle"></i> {!! $message !!}
     </div>
 @endif
+
+@if ($message = session('failed'))
+    <div class="alert alert-danger">
+        <i class="ion-md-alert"></i> {!! $message !!}
+    </div>
+@endif
