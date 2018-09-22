@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark navbar-laravel bg-secondary">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -34,7 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item {{ Request::is('dashboard/candidates') ? 'active' : '' }}"><a href="{{ route('dashboard.candidates') }}" class="nav-link"><i class="ion-md-contacts"></i> Kandidat</a></li>
+                        <li class="nav-item {{ Request::is('dashboard/voters') ? 'active' : '' }}"><a href="{{ route('dashboard.voters') }}" class="nav-link"><i class="ion-md-hand"></i> Pemilih</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
