@@ -1,5 +1,5 @@
 @if ($message = session('success'))
     <div class="alert alert-success">
-        {!! $message !!}
+        <i class="ion-md-checkmark-circle"></i> {!! $message !!}
     </div>
 @endif
