@@ -73,6 +73,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 order-last">
+                        @include('partials.notifications')
+
                         @yield('content')
                     </div>
 
