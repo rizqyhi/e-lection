@@ -38,3 +38,11 @@
 .dataTables_paginate {
     padding: 0 1rem 1rem;
 }
+
+.voter-row-action {
+    visibility: hidden;
+}
+
+#voters-table tbody tr:hover .voter-row-action {
+    visibility: visible;
+}

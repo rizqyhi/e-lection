@@ -14,7 +14,15 @@ class DatatablesHandler extends Controller
 
         return datatables()->of($voters)
             ->editColumn('access_code', '<code>{{$access_code}}</code>')
-            ->rawColumns(['access_code'])
+            ->addColumn('action', function ($voter) {
+                return '
+                <div class="voter-row-action">
+                    <a href="" class="px-1 mr-2"><i class="ion-md-create"></i></a>
+                    <a href="" class="text-danger px-1"><i class="ion-md-trash"></i></a>
+                </div>
+                ';
+            })
+            ->rawColumns(['access_code', 'action'])
             ->toJson();
     }
 }

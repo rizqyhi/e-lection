@@ -13037,7 +13037,7 @@ try {
             processing: true,
             serverSide: true,
             ajax: window.votersDatatablesUrl,
-            columns: [{ data: 'id', name: 'voters.id' }, { data: 'name', name: 'voters.name' }, { data: 'classroom.name', name: 'classroom.name' }, { data: 'access_code', name: 'voters.access_code', searchable: false, sortable: false }]
+            columns: [{ data: 'id', name: 'voters.id' }, { data: 'name', name: 'voters.name' }, { data: 'classroom.name', name: 'classroom.name' }, { data: 'access_code', name: 'voters.access_code', searchable: false, sortable: false }, { data: 'action', name: 'action', orderable: false, searchable: false }]
         });
 
         $('.filter-classroom').on('change', function (e) {

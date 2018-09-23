@@ -22,7 +22,7 @@
                         <th>Nama</th>
                         <th>Kelas</th>
                         <th>Kode Akses</th>
-                        {{-- <th>&nbsp;</th> --}}
+                        <th width="10%">&nbsp;</th>
                     </tr>
                 </thead>
             </table>

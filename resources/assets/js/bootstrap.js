@@ -26,6 +26,7 @@ try {
                 {data: 'name', name: 'voters.name'},
                 {data: 'classroom.name', name: 'classroom.name'},
                 {data: 'access_code', name: 'voters.access_code', searchable: false, sortable: false},
+                {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
 
