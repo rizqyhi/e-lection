@@ -9,3 +9,11 @@
         <i class="ion-md-alert"></i> {!! $message !!}
     </div>
 @endif
+
+@if ($errors->count() > 0)
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $item)
+            <p>{{ $item }}</p>
+        @endforeach
+    </div>
+@endif
