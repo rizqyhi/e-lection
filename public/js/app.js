@@ -13037,7 +13037,15 @@ try {
             processing: true,
             serverSide: true,
             ajax: window.votersDatatablesUrl,
-            columns: [{ data: 'id', name: 'voters.id' }, { data: 'name', name: 'voters.name' }, { data: 'classroom.name', name: 'classroom.name', searchable: false }, { data: 'access_code', name: 'voters.access_code', searchable: false, sortable: false }]
+            columns: [{ data: 'id', name: 'voters.id' }, { data: 'name', name: 'voters.name' }, { data: 'classroom.name', name: 'classroom.name' }, { data: 'access_code', name: 'voters.access_code', searchable: false, sortable: false }]
+        });
+
+        $('.filter-classroom').on('change', function (e) {
+            if (this.value === 'all') {
+                window.votersTable.column(2).search('').draw();
+            } else {
+                window.votersTable.column(2).search(this.value).draw();
+            }
         });
     }
 })(jQuery);
