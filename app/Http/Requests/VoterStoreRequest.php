@@ -26,8 +26,8 @@ class VoterStoreRequest extends FormRequest
         return [
             'id' => 'required|integer',
             'name' => 'required',
-            'classroom_id' => 'sometimes|integer',
-            'access_code' => 'sometimes|alpha_num'
+            'classroom_id' => 'required|integer',
+            'access_code' => 'nullable|alpha_num'
         ];
     }
 }
