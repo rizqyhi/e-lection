@@ -36,5 +36,6 @@ Route::group([
     Route::delete('candidates/{id}', Candidates\DeleteCandidate::class);
 
     Route::get('voters', Voters\ListVoters::class)->name('dashboard.voters');
+    Route::get('voters/data', Voters\DatatablesHandler::class)->name('dashboard.voters.data');
     Route::post('voters', Voters\StoreVoter::class);
 });
