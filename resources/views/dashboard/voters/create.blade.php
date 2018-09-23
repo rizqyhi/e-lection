@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"><i class="ion-md-save"></i> Simpan Pemilih</button>
+                    <button type="submit" class="btn btn-primary"><i class="ion-md-save"></i> Simpan Pemilih</button>
                 </div>
             </form>
         </div>
