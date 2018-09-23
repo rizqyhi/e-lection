@@ -14,19 +14,19 @@
                     <div class="form-group row">
                         <label for="id" class="col-md-2 col-form-label">NIS</label>
                         <div class="col-md-4">
-                            <input type="text" class="form-control" name="id">
+                            <input type="text" class="form-control" name="id" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-md-2 col-form-label">Nama</label>
                         <div class="col">
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="classroom_id" class="col-md-2 col-form-label">Kelas</label>
                         <div class="col">
-                            <select name="classroom_id" class="form-control">
+                            <select name="classroom_id" class="form-control" required>
                                 <option value="">--- Pilih kelas ---</option>
                                 @foreach ($classrooms as $classroom)
                                     <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
