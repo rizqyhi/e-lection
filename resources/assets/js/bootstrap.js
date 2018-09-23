@@ -12,7 +12,24 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('datatables.net-bs4')();
 } catch (e) {}
+
+(function ($) {
+    if ($('#voters-table').length) {
+        window.votersTable = $('#voters-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: window.votersDatatablesUrl,
+            columns: [
+                {data: 'id', name: 'voters.id'},
+                {data: 'name', name: 'voters.name'},
+                {data: 'classroom.name', name: 'classroom.name', searchable: false},
+                {data: 'access_code', name: 'voters.access_code', searchable: false, sortable: false},
+            ]
+        });
+    }
+})(jQuery);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

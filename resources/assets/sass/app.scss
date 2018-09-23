@@ -11,6 +11,9 @@
 // Ionicons
 @import '~ionicons/dist/scss/ionicons';
 
+// Datatables
+@import '~datatables.net-bs4/css/dataTables.bootstrap4.css';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -24,4 +27,14 @@
 
 .btn i[class^="ion-"] {
     margin-right: 0.5rem;
+}
+
+.dataTables_length,
+.dataTables_filter {
+    padding: 1rem 1rem 0;
+}
+
+.dataTables_info,
+.dataTables_paginate {
+    padding: 0 1rem 1rem;
 }
