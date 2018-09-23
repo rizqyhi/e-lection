@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('sidebar')
-    <a href="{{ url('/') }}" class="btn btn-primary btn-block"><i class="ion-md-person-add"></i> Tambah Pemilih Baru</a>
+    <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#create-voter-modal"><i class="ion-md-person-add"></i> Tambah Pemilih Baru</a>
 @endsection
 
 @section('content')
@@ -37,4 +37,6 @@
             </table>
         </div>
     </div>
+
+    @include('dashboard.voters.create')
 @endsection
