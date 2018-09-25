@@ -21,7 +21,7 @@
                         <th>NIS</th>
                         <th>Nama</th>
                         <th>Kelas</th>
-                        <th>Kode Akses</th>
+                        <th width="15%">Kode Akses</th>
                         <th width="10%">&nbsp;</th>
                     </tr>
                 </thead>
