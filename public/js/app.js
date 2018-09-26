@@ -13047,6 +13047,17 @@ try {
                 window.votersTable.column(2).search(this.value).draw();
             }
         });
+
+        $('#edit-voter-modal').on('show.bs.modal', function (e) {
+            var $button = $(e.relatedTarget);
+            var $modal = $(this);
+            var voter = $button.data('voter');
+
+            $modal.find('input[name="id"]').val(voter.id);
+            $modal.find('input[name="name"]').val(voter.name);
+            $modal.find('select[name="classroom_id"] option[value=' + voter.classroom_id + ']').prop('selected', true);
+            $modal.find('input[name="access_code"]').val(voter.access_code);
+        });
     }
 })(jQuery);
 

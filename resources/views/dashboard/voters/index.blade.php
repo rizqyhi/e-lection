@@ -30,6 +30,7 @@
     </div>
 
     @include('dashboard.voters.create')
+    @include('dashboard.voters.edit')
 @endsection
 
 @push('scripts')
