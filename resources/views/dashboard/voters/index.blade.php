@@ -4,6 +4,7 @@
     <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#create-voter-modal"><i class="ion-md-person-add"></i> Tambah Pemilih Baru</a>
     <a href="" class="btn btn-outline-secondary btn-block" data-toggle="modal" data-target="#import-voters-modal"><i class="ion-md-cloud-upload"></i> Impor Data Pemilih</a>
     <a href="{{ route('dashboard.voters.export') }}" class="btn btn-outline-secondary btn-block"><i class="ion-md-cloud-download"></i> Ekspor Data Pemilih</a>
+    <a href="{{ route('dashboard.voters.print') }}" class="btn btn-outline-secondary btn-block"><i class="ion-md-print"></i> Cetak Data Pemilih</a>
 
     <h5 class="mt-4 mb-2">Filter Kelas</h5>
     <select class="form-control filter-classroom">

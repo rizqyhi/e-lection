@@ -41,4 +41,5 @@ Route::group([
     Route::post('voters/import', Voters\ImportVoter::class)->name('dashboard.voters.import');
     Route::get('voters/import-template', Voters\ImportTemplate::class)->name('dashboard.voters.import-template');
     Route::get('voters/export', Voters\ExportVoter::class)->name('dashboard.voters.export');
+    Route::get('voters/print', Voters\PrintVoters::class)->name('dashboard.voters.print');
 });
