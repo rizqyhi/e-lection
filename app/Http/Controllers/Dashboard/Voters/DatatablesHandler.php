@@ -10,7 +10,10 @@ class DatatablesHandler extends Controller
 {
     public function __invoke()
     {
-        $voters = Voter::with('classroom')->select(['voters.*']);
+        $voters = Voter::with('classroom')
+            ->select(['voters.*'])
+            ->orderBy('classroom_id')
+            ->orderBy('name');
 
         return datatables()->of($voters)
             ->editColumn('access_code', '<code>{{$access_code}}</code>')
