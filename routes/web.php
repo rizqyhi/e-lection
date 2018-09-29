@@ -38,5 +38,6 @@ Route::group([
     Route::get('voters', Voters\ListVoters::class)->name('dashboard.voters');
     Route::get('voters/data', Voters\DatatablesHandler::class)->name('dashboard.voters.data');
     Route::post('voters', Voters\StoreVoter::class);
+    Route::post('voters/import', Voters\ImportVoter::class)->name('dashboard.voters.import');
     Route::get('voters/import-template', Voters\ImportTemplate::class)->name('dashboard.voters.import-template');
 });
