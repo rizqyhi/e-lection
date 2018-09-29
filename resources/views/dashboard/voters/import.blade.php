@@ -23,6 +23,12 @@
                         </ol>
                     </div>
                     <div class="form-group row">
+                        <label for="classroom_id" class="col-md-3 col-form-label">Unduh Template</label>
+                        <div class="col">
+                            <a href="{{ route('dashboard.voters.import-template') }}" class="btn btn-outline-primary">Unduh File Template (<code>.xlsx</code>)</a>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="classroom_id" class="col-md-3 col-form-label">Pilih File</label>
                         <div class="col">
                             <input type="file" class="form-control" name="excel_file">
