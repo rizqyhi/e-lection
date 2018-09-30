@@ -7,6 +7,7 @@
                 </div>
                 <div class="col-md-8 d-flex justify-content-center">
                     <stage-login @login="goToVoteStage"></stage-login>
+                    <stage-vote :candidates="candidates"></stage-vote>
                 </div>
             </div>
         </div>
@@ -15,9 +16,16 @@
 
 <script>
 import StageLogin from './StageLogin'
+import StageVote from './StageVote'
 
 export default {
-    components: { StageLogin }
+    components: { StageLogin, StageVote },
+
+    data () {
+        return {
+            candidates: JSON.parse(window.candidates)
+        }
+    },
 
     methods: {
         goToVoteStage (voter) {
