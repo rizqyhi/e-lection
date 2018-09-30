@@ -5,15 +5,19 @@
                 <h2>E-Lection</h2>
             </div>
             <div class="col-md-8 d-flex justify-content-center">
-                <form class="login-form">
+                <form class="login-form" @submit.prevent="submitLoginForm()">
                     <div class="alert alert-info">Silakan login dengan menggunakan NIS dan kode akses yang telah diberikan.</div>
+                    <div class="alert alert-danger" v-if="errorMessage">{{ errorMessage }}</div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="NIS">
+                        <input type="text" class="form-control" placeholder="NIS" v-model="voter.id">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control text-monospace" placeholder="*****">
+                        <input type="text" class="form-control text-monospace" placeholder="*****" v-model="voter.access_code">
                     </div>
-                    <button class="btn btn-primary btn-block">Login</button>
+                    <button type="submit" class="btn btn-brand btn-block" :disabled="disableSubmitButton">
+                        <loading-icon v-if="isLoading"></loading-icon>
+                        <span v-else>Login</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -22,7 +26,38 @@
 
 <script>
 export default {
+    data () {
+        return {
+            voter: {id: '', access_code: ''},
+            errorMessage: null,
+            isLoading: false
+        }
+    },
 
+    computed: {
+        disableSubmitButton () {
+            return this.isLoading
+                || this.voter.id == ''
+                || this.voter.access_code == ''
+        },
+    },
+
+    methods: {
+        submitLoginForm () {
+            this.errorMessage = null
+            this.isLoading = true
+
+            axios.post('/api/voters/auth', this.voter)
+                .then(response => {
+                    window.localStorage.setItem('voter', JSON.stringify(response.data))
+                    this.isLoading = false
+                })
+                .catch(error => {
+                    this.errorMessage = error.response.data.message
+                    this.isLoading = false
+                })
+        }
+    }
 }
 </script>
 
