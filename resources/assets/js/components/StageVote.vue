@@ -10,9 +10,9 @@
             ></candidate>
         </div>
 
-        <div class="row py-3 mt-3" style="border-top: 1px solid rgba(0,0,0,0.09)" v-if="selectedCandidate.id">
+        <div class="row py-3 mt-3" style="border-top: 1px solid rgba(0,0,0,0.09)">
             <div class="col-md-6 ml-auto d-flex align-items-end">
-                <button type="button" class="btn btn-success ml-auto">Saya memilih <strong>{{ selectedCandidate.name }}</strong> <i class="ion-md-arrow-round-forward ml-3"></i></button>
+                <button type="button" class="btn btn-success ml-auto" :disabled="!selectedCandidate.id">Saya memilih <strong>{{ selectedCandidate.name }}</strong> <i class="ion-md-arrow-round-forward ml-3"></i></button>
             </div>
         </div>
     </div>
