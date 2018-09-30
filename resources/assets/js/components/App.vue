@@ -6,8 +6,8 @@
                     <h2>E-Lection</h2>
                 </div>
                 <div class="col-md-8 d-flex justify-content-center">
-                    <stage-login @login="goToVoteStage"></stage-login>
-                    <stage-vote :candidates="candidates"></stage-vote>
+                    <stage-login @login="goToVoteStage" v-if="isCurrentStage('login')"></stage-login>
+                    <stage-vote :candidates="candidates" v-if="isCurrentStage('vote')"></stage-vote>
                 </div>
             </div>
         </div>
@@ -23,13 +23,17 @@ export default {
 
     data () {
         return {
+            currentStage: 'login',
             candidates: JSON.parse(window.candidates)
         }
     },
 
     methods: {
+        isCurrentStage (stage) {
+            return stage === this.currentStage
+        },
         goToVoteStage (voter) {
-            console.log(voter)
+            this.currentStage = 'vote'
         }
     }
 }
