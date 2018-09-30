@@ -23,5 +23,8 @@
 
 <body>
     <div id="app"></div>
+    <script>
+        window.candidates = '{!! $candidates->toJson() !!}';
+    </script>
 </body>
 </html>
