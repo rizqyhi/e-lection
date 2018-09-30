@@ -8,7 +8,8 @@
                 <div class="col-md-8 d-flex justify-content-center">
                     <stage-login @login="goToVoteStage" v-if="isCurrentStage('login')"></stage-login>
                     <stage-vote :candidates="candidates" @select-candidate="goToConfirmStage" v-if="isCurrentStage('vote')"></stage-vote>
-                    <stage-confirm v-bind="{voter, candidate}" @back="backToVoteStage" v-if="isCurrentStage('confirm')"></stage-confirm>
+                    <stage-confirm v-bind="{voter, candidate}" @back="backToVoteStage" @save-confirm="goToThankStage" v-if="isCurrentStage('confirm')"></stage-confirm>
+                    <stage-thank v-if="isCurrentStage('thank')"></stage-thank>
                 </div>
             </div>
         </div>
@@ -19,9 +20,10 @@
 import StageLogin from './StageLogin'
 import StageVote from './StageVote'
 import StageConfirm from './StageConfirm'
+import StageThank from './StageThank'
 
 export default {
-    components: { StageLogin, StageVote, StageConfirm },
+    components: { StageLogin, StageVote, StageConfirm, StageThank },
 
     data () {
         return {
@@ -46,6 +48,13 @@ export default {
         },
         backToVoteStage () {
             this.currentStage = 'vote'
+        },
+        goToThankStage () {
+            this.currentStage = 'thank'
+
+            setTimeout(() => {
+                window.location.reload()
+            }, 3000)
         }
     }
 }
