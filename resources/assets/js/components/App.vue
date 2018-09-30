@@ -7,7 +7,8 @@
                 </div>
                 <div class="col-md-8 d-flex justify-content-center">
                     <stage-login @login="goToVoteStage" v-if="isCurrentStage('login')"></stage-login>
-                    <stage-vote :candidates="candidates" v-if="isCurrentStage('vote')"></stage-vote>
+                    <stage-vote :candidates="candidates" @select-candidate="goToConfirmStage" v-if="isCurrentStage('vote')"></stage-vote>
+                    <stage-confirm v-bind="{voter, candidate}" @back="backToVoteStage" v-if="isCurrentStage('confirm')"></stage-confirm>
                 </div>
             </div>
         </div>
@@ -17,14 +18,17 @@
 <script>
 import StageLogin from './StageLogin'
 import StageVote from './StageVote'
+import StageConfirm from './StageConfirm'
 
 export default {
-    components: { StageLogin, StageVote },
+    components: { StageLogin, StageVote, StageConfirm },
 
     data () {
         return {
             currentStage: 'login',
-            candidates: JSON.parse(window.candidates)
+            candidates: JSON.parse(window.candidates),
+            voter: {},
+            candidate: {}
         }
     },
 
@@ -33,6 +37,14 @@ export default {
             return stage === this.currentStage
         },
         goToVoteStage (voter) {
+            this.voter = voter
+            this.currentStage = 'vote'
+        },
+        goToConfirmStage (candidate) {
+            this.candidate = candidate
+            this.currentStage = 'confirm'
+        },
+        backToVoteStage () {
             this.currentStage = 'vote'
         }
     }
