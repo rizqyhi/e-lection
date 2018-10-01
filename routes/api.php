@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::post('voters/auth', Api\Voters\AuthAction::class);
+Route::post('voters/vote', Api\Voters\VoteAction::class);

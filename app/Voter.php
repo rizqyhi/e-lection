@@ -14,4 +14,16 @@ class Voter extends Model
     {
         return $this->belongsTo(Classroom::class);
     }
+
+    public function vote()
+    {
+        return $this->hasOne(Vote::class);
+    }
+
+    public function voteFor(Candidate $candidate)
+    {
+        $vote = new Vote(['candidate_id' => $candidate->id]);
+
+        return $this->vote()->save($vote);
+    }
 }
