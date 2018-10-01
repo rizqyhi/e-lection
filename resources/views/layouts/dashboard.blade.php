@@ -32,11 +32,13 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item {{ Request::is('dashboard/candidates') ? 'active' : '' }}"><a href="{{ route('dashboard.candidates') }}" class="nav-link"><i class="ion-md-contacts"></i> Kandidat</a></li>
-                        <li class="nav-item {{ Request::is('dashboard/voters') ? 'active' : '' }}"><a href="{{ route('dashboard.voters') }}" class="nav-link"><i class="ion-md-hand"></i> Pemilih</a></li>
-                    </ul>
+                    @auth
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item {{ Request::is('dashboard/candidates') ? 'active' : '' }}"><a href="{{ route('dashboard.candidates') }}" class="nav-link"><i class="ion-md-contacts"></i> Kandidat</a></li>
+                            <li class="nav-item {{ Request::is('dashboard/voters') ? 'active' : '' }}"><a href="{{ route('dashboard.voters') }}" class="nav-link"><i class="ion-md-hand"></i> Pemilih</a></li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
