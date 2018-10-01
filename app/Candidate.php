@@ -18,4 +18,9 @@ class Candidate extends Model
     {
         return asset('storage/candidates/'.$this->photo);
     }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
 }
