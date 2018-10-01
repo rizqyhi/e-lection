@@ -18,6 +18,10 @@ class AuthAction extends Controller
             return response()->json(['message' => 'NIS dan kode akses tidak cocok'], 404);
         }
 
+        if ($voter->vote) {
+            return response()->json(['message' => 'Kamu sudah menggunakan hak pilihmu'], 401);
+        }
+
         return response()->json($voter);
     }
 }

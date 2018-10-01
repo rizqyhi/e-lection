@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Voter;
 
 class VoterVoteRequest extends FormRequest
 {
@@ -13,7 +14,9 @@ class VoterVoteRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $voter = Voter::find($this->voter_id);
+
+        return !$voter->vote;
     }
 
     /**
