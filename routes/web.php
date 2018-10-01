@@ -24,7 +24,7 @@ Route::group([
     'namespace'  => 'Dashboard',
     'middleware' => 'auth'
 ], function () {
-    Route::get('/', Home::class);
+    Route::get('/', Home::class)->name('dashboard.home');
 
     Route::get('candidates', Candidates\ListCandidates::class)->name('dashboard.candidates');
     Route::post('candidates', Candidates\StoreCandidate::class);
