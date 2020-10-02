@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class ListCandidates extends Controller
 {
+    /**
+     * method for get all candidates using repository
+     * 
+     * @param CandidateRepository
+     * @return view
+     */
     public function __invoke(CandidateRepository $repository)
     {
         return view('dashboard.candidates.index', [
