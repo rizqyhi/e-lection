@@ -10,6 +10,12 @@ class AuthAction extends Controller
 {
     public function __invoke(VoterAuthRequest $request)
     {
+        /**
+         * select voter then validate their access code
+         * 
+         * @param VoterAuthRequest
+         * @return json 
+         */
         $voter = Voter::where('id', $request->id)
             ->where('access_code', $request->access_code)
             ->first();

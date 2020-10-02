@@ -9,6 +9,11 @@ use App\Voter;
 
 class ListVoters extends Controller
 {
+    /**
+     * method for get list of voter with clasroom
+     * 
+     * @return view
+     */
     public function __invoke()
     {
         $voters = Voter::with('classroom')->get();

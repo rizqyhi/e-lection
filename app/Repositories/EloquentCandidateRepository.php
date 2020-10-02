@@ -12,21 +12,45 @@ class EloquentCandidateRepository implements CandidateRepository
 {
     private $model;
 
+    /**
+     * method for redefining candidate
+     * 
+     * @param Candidate
+     */
     public function __construct(Candidate $candidate) {
         $this->model = $candidate;
     }
 
+    /**
+     * get all with order by number column
+     */
     public function getAll()
     {
         return $this->model->newQuery()->orderBy('no')->get();
     }
 
+    /**
+     * finding related id
+     * 
+     * @param int
+     * @return array
+     */
     public function find($id)
     {
         return $this->model->newQuery()->find($id);
     }
 
+    /**
+     * method for save candidate
+     * 
+     * @param array
+     * @return void
+     */
     public function save($candidateData) {
+        /**
+         * try append id of candidateData with uuid
+         * if error throw UnsatisfiedDependencyException
+         */
         try {
             $candidateData['id'] = Uuid::uuid4()->toString();
 
@@ -36,6 +60,12 @@ class EloquentCandidateRepository implements CandidateRepository
         }
     }
 
+    /**
+     * method for update candidate
+     * 
+     * @param int,array
+     * @return void
+     */
     public function update($candidate_id, $candidate_data)
     {
         return $this->model
@@ -43,6 +73,12 @@ class EloquentCandidateRepository implements CandidateRepository
             ->update($candidate_data);
     }
 
+    /**
+     * method for delete candidate
+     * 
+     * @param int
+     * @return void
+     */
     public function delete($candidate_id)
     {
         return $this->model

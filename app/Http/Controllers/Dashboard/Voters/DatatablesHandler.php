@@ -8,22 +8,27 @@ use App\Voter;
 
 class DatatablesHandler extends Controller
 {
+    /**
+     * method for get list of voter
+     * 
+     * @return datatables
+     */
     public function __invoke()
     {
+        /**
+         * select table voter  with eager loading
+         */
         $voters = Voter::with('classroom')
             ->select(['voters.*'])
             ->orderBy('classroom_id')
             ->orderBy('name');
 
+        /**
+         * change format of column access_code to code based tag
+         */
         return datatables()->of($voters)
             ->editColumn('access_code', '<code>{{$access_code}}</code>')
             ->addColumn('action', function ($voter) {
-                /* return '
-                <div class="voter-row-action">
-                    <a href="#" class="px-1 mr-2 btn-edit-voter" data-toggle="modal" data-target="#edit-voter-modal" data-voter=\''.$voter->toJson().'\'><i class="ion-md-create"></i></a>
-                    <a href="" class="text-danger px-1"><i class="ion-md-trash"></i></a>
-                </div>
-                '; */
                 return '';
             })
             ->rawColumns(['access_code', 'action'])

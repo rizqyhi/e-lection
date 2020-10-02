@@ -9,6 +9,12 @@ use App\Voter;
 
 class VoteAction extends Controller
 {
+    /**
+     * voter selecting candidate
+     * 
+     * @param VoterAuthRequest
+     * @return json
+     */
     public function __invoke(VoterVoteRequest $request)
     {
         try {
